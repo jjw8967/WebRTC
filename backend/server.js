@@ -35,6 +35,7 @@ io.on('connection', function(socket) {
         io.emit('MESSAGE', data)
     });
 
+    //invoke communication when use same socket
     socket.on('create or join',(room)=>{
         var clientsInRoom = io.sockets.adapter.rooms[room];
         var numClients = clientsInRoom ? Object.keys(clientsInRoom.sockets).length : 0;
